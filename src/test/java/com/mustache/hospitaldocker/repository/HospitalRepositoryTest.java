@@ -60,7 +60,7 @@ class HospitalRepositoryTest {
 
     @Test
     void countBeds() {
-        List<Hospital> hospitals = hospitalRepository.findByTotalNumberOfBedsBetween(10, 19);
+        List<Hospital> hospitals = hospitalRepository.findByTotalNumberOfBedsBetweenOrderByTotalNumberOfBedsDesc(10, 19);
         printHospitalNameAndAddressAndBeds(hospitals);
     }
 
