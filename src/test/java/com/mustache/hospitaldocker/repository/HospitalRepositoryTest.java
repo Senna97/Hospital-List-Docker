@@ -20,6 +20,12 @@ class HospitalRepositoryTest {
 
     void printHospitalNameAndAddress(List<Hospital> hospitals) {
         for (Hospital hospital : hospitals) {
+            System.out.printf("%s | %s\n", hospital.getHospitalName(), hospital.getRoadNameAddress());
+        }
+    }
+
+    void printHospitalNameAndAddressAndBeds(List<Hospital> hospitals) {
+        for (Hospital hospital : hospitals) {
             System.out.printf("%s | %s | %d\n", hospital.getHospitalName(), hospital.getRoadNameAddress(), hospital.getTotalNumberOfBeds());
         }
     }
@@ -55,6 +61,12 @@ class HospitalRepositoryTest {
     @Test
     void countBeds() {
         List<Hospital> hospitals = hospitalRepository.findByTotalNumberOfBedsBetween(10, 19);
+        printHospitalNameAndAddressAndBeds(hospitals);
+    }
+
+    @Test
+    void findAddressAndName() {
+        List<Hospital> hospitals = hospitalRepository.findByRoadNameAddressContainingAndBusinessTypeNameContaining("서대문구", "치과");
         printHospitalNameAndAddress(hospitals);
     }
 }
