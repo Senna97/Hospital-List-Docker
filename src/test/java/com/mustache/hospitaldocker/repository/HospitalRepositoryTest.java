@@ -18,6 +18,12 @@ class HospitalRepositoryTest {
     @Autowired
     HospitalRepository hospitalRepository;
 
+    void printHospitalNameAndAddress(List<Hospital> hospitals) {
+        for (Hospital hospital : hospitals) {
+            System.out.printf("%s | %s | %d\n", hospital.getHospitalName(), hospital.getRoadNameAddress(), hospital.getTotalNumberOfBeds());
+        }
+    }
+
     @Test
     void findById() {
         Optional<Hospital> hospital = hospitalRepository.findById(1);
@@ -38,6 +44,17 @@ class HospitalRepositoryTest {
         for (Hospital hospital : hospitals) {
             System.out.println(hospital.getHospitalName());
         }
+    }
 
+    @Test
+    void containing() {
+        List<Hospital> hospitals = hospitalRepository.findByRoadNameAddressContaining("서대문구");
+        printHospitalNameAndAddress(hospitals);
+    }
+
+    @Test
+    void countBeds() {
+        List<Hospital> hospitals = hospitalRepository.findByTotalNumberOfBedsBetween(10, 19);
+        printHospitalNameAndAddress(hospitals);
     }
 }
