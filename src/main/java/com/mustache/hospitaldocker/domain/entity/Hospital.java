@@ -1,5 +1,6 @@
 package com.mustache.hospitaldocker.domain.entity;
 
+import com.mustache.hospitaldocker.domain.dto.HospitalResponse;
 import lombok.Getter;
 
 import javax.persistence.Column;
@@ -20,6 +21,19 @@ public class Hospital {
     @Column(name = "hospital_name")
     private String hospitalName;
 
-    private String businessTypeName;
+    private Integer patientRoomCount;
     private Integer totalNumberOfBeds;
+    private String businessTypeName;
+    private Float totalAreaSize;
+
+    // HospitalEntity 를 HospitalResponse Dto 로 만들어주는 부분
+    public static HospitalResponse of(Hospital hospital) {
+        return new HospitalResponse(hospital.getId(),
+                hospital.getRoadNameAddress(),
+                hospital.getHospitalName(),
+                hospital.getPatientRoomCount(),
+                hospital.getTotalNumberOfBeds(),
+                hospital.getBusinessTypeName(),
+                hospital.getTotalAreaSize());
+    }
 }
