@@ -1,12 +1,11 @@
 package com.mustache.hospitaldocker.domain.entity;
 
 import com.mustache.hospitaldocker.domain.dto.ArticleDto;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
+@Builder
 @Entity
 @Table(name = "article3")
 @Getter
