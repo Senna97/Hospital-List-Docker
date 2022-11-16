@@ -1,5 +1,6 @@
 package com.mustache.hospitaldocker.domain.entity;
 
+import com.mustache.hospitaldocker.domain.dto.ArticleDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,10 @@ public class Article {
     public Article(String title, String content) {
         this.title = title;
         this.content = content;
+    }
+
+    public static ArticleDto of(Article article) {
+        return new ArticleDto(article.getId(), article.getTitle(), article.getContent());
     }
 }
 
