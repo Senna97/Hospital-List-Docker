@@ -1,16 +1,22 @@
 package com.mustache.hospitaldocker.domain.entity;
 
 import com.mustache.hospitaldocker.domain.dto.HospitalResponse;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@Builder
 @Entity
 @Getter
 @Table(name = "nation_wide_hospitals")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Hospital {
     @Id
     private Integer id;

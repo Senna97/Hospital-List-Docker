@@ -39,7 +39,7 @@ class HospitalRepositoryTest {
     }
 
     @Test
-    @DisplayName("BusinessTypeNamedl 보건소, 보건지소, 보건진료소인 데이터가 잘 파싱되는지")
+    @DisplayName("BusinessTypeName 이 보건소, 보건지소, 보건진료소인 데이터가 잘 파싱되는지")
     void findByBusinessTypeNameIn() {
         List<String> inClues = new ArrayList<>();
         inClues.add("보건소");
